@@ -1,0 +1,28 @@
+{
+  "name": "my_lodash",
+  "version": "1.0.0",
+  "description": "自己的JavaScript 实用工具库",
+  "main": "dist/my_lodash.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --progress --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tian-cai/my-lodash.git"
+  },
+  "author": "tian-cai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tian-cai/my-lodash/issues"
+  },
+  "homepage": "https://github.com/tian-cai/my-lodash#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^1.0.0",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
