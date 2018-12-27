@@ -1,6 +1,6 @@
 {
   "name": "my_lodash",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "自己的JavaScript 实用工具库",
   "main": "dist/my_lodash.js",
   "scripts": {

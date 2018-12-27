@@ -11,7 +11,7 @@
 - util
   提供一些工具方法
   ```javascript
-  import my_lodash from my_lodash;
+  import my_lodash from 'my_lodash';
   let util =  my_lodash.util;
 
   // 对象的深克隆
@@ -33,7 +33,7 @@
 
   提供四种方法供我们对页面的性能进行监控，开发者可以根据得到的数据进行上报处理。
   ```javascript
-  import my_lodash from my_lodash;
+  import my_lodash from 'my_lodash';
   let performanceMonitor =  my_lodash.performanceMonitor;
 
   // 获取所有资源的加载情况，返回一个数组
