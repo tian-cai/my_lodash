@@ -26,8 +26,21 @@
   util.randomRgbColor()
   util.randomHexColor()
   util.randomStr(length)
-  util.randomIntNumber(min,max)
-  util.randomNumber(min,max)
+  util.randomIntNumber(min, max)
+  util.randomNumber(min, max)
+
+  // 关于cookie
+  util.getCookie()  // 获取所有cookie，返回一个对象
+  util.getCookie(key) // 获取指定cookie值
+
+  // 关于数组
+  uniqueArray(array)  // 数组去重
+  sortByField(array, field, direction) 
+  // 按照对象的某个属性对对象数组进行排序,
+  // direction为排序方向，默认从小到大，'decrease'为从大到小
+
+  throttle(func, wait)  // 节流
+  debounce(func, wait, immediate)  // 防抖 immediate表示第一次是否执行，true执行，false不执行
   ```
 - performanceMonitor
 
@@ -49,10 +62,18 @@
   performanceMonitor.performanceObserver();
   
   // 使用示例
-  performanceMonitor.performanceObserver()
-  .then((obj)=>{
-    console.log(obj)   // obj为对象，包含了我们进行监控的数据
-  })
+  if (window.performanceObserver) {
+    performanceMonitor.performanceObserver()
+    .then((obj)=>{
+      console.log(obj)   
+      // obj为对象，包含了我们进行监控的数据
+    })
+  } else if(window.performance){
+    window.onload = function() {
+      let obj = performanceMonitor.performanceWindow() 
+      // obj为对象，包含了我们进行监控的数据
+    }
+  }
   ```
   **注意：getAllSourceTime(),getPaintTime(),performanceWindow()需要放在window.onload函数之中，否则一些监控数据会读取不到**
 

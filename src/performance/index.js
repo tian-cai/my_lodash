@@ -63,6 +63,11 @@ function getPaintTime() {
 // PerformanceObserver监控
 function performanceObserver() {
   let obj = {}
+  if (!window.performanceObserver) {
+    return new Promise((resolve, reject) => {
+      resolve({'error':"您的浏览器不支持window.performanceObserver"})
+    })
+  }
   return new Promise((resolve, reject) => {
     let observer = new PerformanceObserver(list => {
       resolve(list);
@@ -90,13 +95,16 @@ function performanceObserver() {
 }
 // 使用window.performance进行性能监控
 function performanceWindow() {
-  let timing = window.performance.timing;
-  let performanceData = handleData(timing)
-  performanceData.timestamp = Date.now()
-  performanceData.url = location.href
-  performanceData.from = 'window.performance'
-  performanceData = Object.assign({}, performanceData, getPaintTime())
-  return performanceData
+  if (window.performance && window.performance.timing) {
+    let timing = window.performance.timing;
+    let performanceData = handleData(timing)
+    performanceData.timestamp = Date.now()
+    performanceData.url = location.href
+    performanceData.from = 'window.performance'
+    performanceData = Object.assign({}, performanceData, getPaintTime())
+    return performanceData
+  }
+  return {}
 }
 
 let performanceMonitor = {

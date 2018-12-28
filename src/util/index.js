@@ -77,6 +77,81 @@ function randomRgbColor() {
   return "rgb(" + r + ',' + g + ',' + b + ")";
 }
 
+//获取cookie
+function getCookie(key) {
+  var obj = {}
+  var encodeKey = encodeURIComponent(key);
+  var allCookieArr = document.cookie.split('; ');
+  var len = allCookieArr.length;
+  for (var i = 0; i < len; i++) {
+    var temp = allCookieArr[i].split('=');
+    obj[temp[0]] = temp[1];
+  }
+  if (key) {
+    return obj[encodeKey]
+  }
+  return obj;
+}
+
+// 数组去重
+function uniqueArray(array) {
+  if (array instanceof Array) {
+    return [...new Set(array)]
+  }
+  return;
+}
+
+// 按照对象的某个属性对对象数组进行排序
+function sortByField(array, field, direction) {
+  if (array instanceof Array) {
+    array.sort(function (a, b) {
+      if (direction !== 'decrease') {
+        return a[field] - b[field]
+      } else {
+        return b[field] - a[field]
+      }
+    })
+  }
+}
+
+// 节流
+function throttle(func, wait) {
+  let context, args;
+  let previous = 0;
+  return function () {
+    let now = Date.now();
+    context = this;
+    args = arguments;
+    if (now - previous > wait) {
+      func.apply(context, args);
+      previous = now;
+    }
+  }
+}
+
+// 防抖
+function debounce(func, wait, immediate) {
+  let timeout;
+  return function () {
+    let context = this;
+    let args = arguments;
+    if (timeout) clearTimeout(timeout);
+    if (immediate) {
+      var callNow = !timeout;
+      timeout = setTimeout(function () {
+        timeout = null;
+        func.apply(context, args)
+      }, wait)
+      if (callNow) func.apply(context, args)
+    }
+    else {
+      timeout = setTimeout(function () {
+        func.apply(context, args)
+      }, wait);
+    }
+  }
+}
+
 let util = {
   deepCloneObj,
   isChinese,
@@ -86,7 +161,11 @@ let util = {
   randomHexColor,
   randomStr,
   randomNumber,
-  randomIntNumber
-
+  randomIntNumber,
+  getCookie,
+  uniqueArray,
+  sortByField,
+  throttle,
+  debounce
 }
 export default util
