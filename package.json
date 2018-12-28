@@ -1,6 +1,6 @@
 {
   "name": "my_lodash",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "自己的JavaScript 实用工具库",
   "main": "dist/my_lodash.js",
   "scripts": {
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tian-cai/my-lodash.git"
+    "url": "git+https://github.com/tian-cai/my_lodash.git"
   },
   "author": "tian-cai",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tian-cai/my-lodash/issues"
+    "url": "https://github.com/tian-cai/my_lodash/issues"
   },
-  "homepage": "https://github.com/tian-cai/my-lodash#readme",
+  "homepage": "https://github.com/tian-cai/my_lodash#readme",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
