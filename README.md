@@ -34,13 +34,13 @@
   util.getCookie(key) // 获取指定cookie值
 
   // 关于数组
-  uniqueArray(array)  // 数组去重
-  sortByField(array, field, direction) 
+  util.uniqueArray(array)  // 数组去重
+  util.sortByField(array, field, direction) 
   // 按照对象的某个属性对对象数组进行排序,
   // direction为排序方向，默认从小到大，'decrease'为从大到小
 
-  throttle(func, wait)  // 节流
-  debounce(func, wait, immediate)  // 防抖 immediate表示第一次是否执行，true执行，false不执行
+  util.throttle(func, wait)  // 节流
+  util.debounce(func, wait, immediate)  // 防抖 immediate表示第一次是否执行，true执行，false不执行
   ```
 - performanceMonitor
 
